@@ -52,7 +52,7 @@ export default {
       projectList: getterTypes.projectsList
     }),
     projectLength() {
-      return this.projects !== null ? this.projectList.projects.length : 0
+      return this.projects !== null ? this.projectList?.projects?.length : 0
     }
   },
   mounted() {

@@ -16,7 +16,7 @@
       <fieldset class="form__group">
         <input
           class="form__control"
-          :class="{ 'is-invalid': isInvalidPassord }"
+          :class="{ 'is-invalid': isInvalidPassword }"
           type="password"
           placeholder="Password"
           v-model="password"
@@ -40,19 +40,23 @@ export default {
       email: '',
       password: '',
       isInvalidEmail: false,
-      isInvalidPassord: false,
+      isInvalidPassword: false,
     }
   },
   computed: {
     ...mapState({
-      isSubmitting: state => state.auth.isSubmitting
+      isSubmitting: state => state.auth.isSubmitting,
+      isLoggedIn: state => state.auth.isLoggedIn
     })
+  },
+  mounted() {
+    this.isLoggedIn ? this.$router.push({name: 'projects'}) : ''
   },
   methods: {
     onSubmit() {
       if (validateEmail(this.email) && this.email !== '' && this.password !== '') {
         this.isInvalidEmail = false
-        this.isInvalidPassord = false
+        this.isInvalidPassword = false
         this.$store
         .dispatch(actionTypes.login)
         .then(() => {
@@ -65,11 +69,11 @@ export default {
       }
 
       if (this.password == '') {
-        this.isInvalidPassord = true
+        this.isInvalidPassword = true
       }
     },
-    resetIsInvalidPassord () {
-      this.isInvalidPassord = false
+    resetIsInvalidPassword () {
+      this.isInvalidPassword = false
     },
     resetIsInvalidEmail () {
       this.isInvalidEmail = false

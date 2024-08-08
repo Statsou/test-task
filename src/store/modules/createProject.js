@@ -8,7 +8,7 @@ export const mutationTypes = {
   createProjectFailure: '[createProject] createProjectFailure'
 }
 
-export const actionTypes = {
+export const actionTypesCreateProject = {
   createProject: '[createProject] createProject',
 }
 
@@ -25,7 +25,7 @@ const mutations = {
 }
 
 const actions = {
-  [actionTypes.createProject](context, newProject) {
+  [actionTypesCreateProject.createProject](context, newProject) {
     return new Promise (resolve => {
       context.commit(mutationTypes.createProjectStart)
       if (newProject) {

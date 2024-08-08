@@ -1,5 +1,5 @@
 <template>
-  <section class="project">
+  <section class="project" v-if="currentProject">
     <h2 class="project__title">{{ currentProject.title }}</h2>
     <p class="project__description">{{ currentProject.description }}</p>
     <div class="project__navigation">
@@ -33,6 +33,9 @@
       </template>
     </draggable>
   </section>
+  <div v-else>
+    Что-то пошло не так, вернитесь на главную и обновите страницу
+  </div>
 </template>
 
 <script>
@@ -55,12 +58,20 @@ export default {
       projectList: getterTypes.projectsList
     }),
     documentsLength() {
-      return this.currentProject.documents.length
+      return this.currentProject?.documents?.length
     }
   },
   beforeMount() {
-    const currentProject = this.projectList.projects.find(project => project.slug === this.$route.params.slug)
-    this.$store.dispatch(actionTypes.getCurrentProject, currentProject)
+    if (this.projectList) {
+      const currentProject = this.projectList?.projects?.find(project => project.slug === this.$route.params.slug)
+      this.$store.dispatch(actionTypes.getCurrentProject, currentProject)
+      localStorage.setItem('currentProject', JSON.stringify(this.currentProject));
+    } else {
+      this.$store.dispatch(actionTypes.getProjects, {apiUrl: '/projects'})
+      const currentProject = JSON.parse(localStorage.getItem('currentProject'));
+      this.$store.dispatch(actionTypes.getCurrentProject, currentProject)
+      alert('Данные изменились на изначальные. Изменения не будут внесены.')
+    }
   },
   methods: {
     deleteItem(index) {

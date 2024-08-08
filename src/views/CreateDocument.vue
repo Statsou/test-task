@@ -14,8 +14,8 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import { getterTypes } from '@/store/modules/projects';
-import { actionTypes } from '@/store/modules/createDocument';
+import { getterTypes, actionTypes } from '@/store/modules/projects';
+import { actionTypesCreateDocument } from '@/store/modules/createDocument';
 import { generateRandomString } from '@/helpers/generateRandomString.js';
 
 import TButtonBack from '@/components/ButtonBack.vue';
@@ -32,7 +32,8 @@ export default {
       isSubmitting: state => state.createDocument.isSubmitting,
     }),
     ...mapGetters({
-      currentProject: getterTypes.currentProject
+      currentProject: getterTypes.currentProject,
+      projectsList: getterTypes.projectsList
     })
   },
   data() {
@@ -43,11 +44,16 @@ export default {
       }
     }
   },
+  beforeMount() {
+    if (!this.projectsList) {
+      this.$store.dispatch(actionTypes.getProjects, {apiUrl: '/projects'})
+    }
+  },
   methods: {
     onSubmit(documentInput) {
       documentInput.slug = generateRandomString()
       this.currentProject.documents.push(documentInput)
-      this.$store.dispatch(actionTypes.createDocuments, documentInput)
+      this.$store.dispatch(actionTypesCreateDocument.createDocuments, documentInput)
         .then(() => {
           this.$router.push({name: 'projectDocuments'})
         })

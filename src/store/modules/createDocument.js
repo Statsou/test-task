@@ -8,7 +8,7 @@ export const mutationTypes = {
   createDocumentFailure: '[createDocument] createDocumentFailure'
 }
 
-export const actionTypes = {
+export const actionTypesCreateDocument = {
   createDocuments: '[createDocument] createDocuments'
 }
 
@@ -25,7 +25,7 @@ const mutations = {
 }
 
 const actions = {
-  [actionTypes.createDocuments](context, newDocument) {
+  [actionTypesCreateDocument.createDocuments](context, newDocument) {
     return new Promise (resolve => {
       context.commit(mutationTypes.createDocumentStart)
 

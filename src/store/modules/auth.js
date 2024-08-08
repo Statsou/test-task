@@ -65,7 +65,7 @@ const actions = {
 
   [actionTypes.logout](context) {
     return new Promise (resolve => {
-      setItem('accessToken', '')
+      localStorage.removeItem('accessToken');
       context.commit(mutationTypes.logout)
       resolve()
     })

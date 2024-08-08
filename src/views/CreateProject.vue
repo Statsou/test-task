@@ -14,8 +14,8 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex';
-import { getterTypes } from '@/store/modules/projects';
-import { actionTypes } from '@/store/modules/createProject';
+import { getterTypes, actionTypes } from '@/store/modules/projects';
+import { actionTypesCreateProject } from '@/store/modules/createProject';
 import { generateRandomString } from '@/helpers/generateRandomString.js';
 import { getDate } from '@/helpers/getDate.js';
 
@@ -44,6 +44,11 @@ export default {
       }
     }
   },
+  beforeMount() {
+    if (!this.projectsList) {
+      this.$store.dispatch(actionTypes.getProjects, {apiUrl: '/projects'})
+    }
+  },
   methods: {
     onSubmit(projectInput) {
       projectInput.date = getDate()
@@ -51,7 +56,7 @@ export default {
       projectInput.documents = []
       this.projectsList.projects.push(projectInput)
 
-      this.$store.dispatch(actionTypes.createProject, projectInput)
+      this.$store.dispatch(actionTypesCreateProject.createProject, projectInput)
       .then(() => {
           this.$router.push({name: 'projects'})
         })

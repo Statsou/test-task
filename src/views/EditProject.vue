@@ -1,5 +1,5 @@
 <template>
-  <section class="edit-project">
+  <section class="edit-project" v-if="currentProject">
     <h2 class="edit-project__title">Редактировать Проект</h2>
     <div class="edit-project__navigation">
       <t-button-back @router="router"/>
@@ -10,6 +10,9 @@
       @projectSubmit="onSubmit"
     />
   </section>
+  <div v-else>
+    Что-то пошло не так
+  </div>
 </template>
 
 <script>
@@ -46,8 +49,13 @@ export default {
     }
   },
   beforeMount() {
-    const currentProject = this.projectList.projects.find(project => project.slug === this.$route.params.slug)
+    const currentProject = this.projectList?.projects?.find(project => project.slug === this.$route.params.slug)
     this.$store.dispatch(actionTypes.getCurrentProject, currentProject)
+
+    if (!this.currentProject) {
+      alert("Изменения отменены. Вас перенаправит на главную страницу")
+      this.$router.push({name: 'projects'})
+    }
   },
   methods: {
     onSubmit(projectInput) {
