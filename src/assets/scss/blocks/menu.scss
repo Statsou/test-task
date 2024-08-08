@@ -1,0 +1,59 @@
+.menu__link,
+.menu__button-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+
+  background-color: transparent;
+  border: 1px #777dc8 solid;
+  border-radius: 5px;
+
+  :not(:disabled) {
+    cursor: pointer;
+  }
+
+  @include vp-767 {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.menu__link {
+  &:active {
+    & > .menu__icon-edit {
+      & path {
+        stroke: #bbbbbb;
+      }
+    }
+  }
+}
+
+.menu__button-delete {
+  pointer-events: initial;
+
+  &:active {
+    & > .menu__icon-trash {
+      & path {
+        stroke: #ae2820;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.menu__icon-edit,
+.menu__icon-trash {
+  width: 24px;
+  height: 24px;
+
+  & > path {
+    stroke: #777dc8;
+  }
+
+  @include vp-767 {
+    width: 18px;
+    height: 18px;
+  }
+}
