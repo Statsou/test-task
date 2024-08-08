@@ -1,5 +1,5 @@
 <template>
-  <section class="edit-document">
+  <section class="edit-document" v-if="currentDocument">
     <h2 class="edit-document__title">Редактировать Документ</h2>
     <div class="edit-document__navigation">
       <t-button-back @router="router" />
@@ -10,6 +10,9 @@
       @documentSubmit="onSubmit"
     />
   </section>
+  <div v-else>
+    Что-то пошло не так, вернитесь на главную и обновите страницу
+  </div>
 </template>
 
 <script>
@@ -49,8 +52,13 @@ export default {
     }
   },
   beforeMount() {
-    const currentDocument = this.currentProject.documents.find(project => project.slug === this.$route.params.slug)
+    const currentDocument = this.currentProject?.documents?.find(project => project.slug === this.$route.params.slug)
     this.$store.dispatch(actionTypes.getCurrentDocument, currentDocument)
+
+    if (!this.currentDocument) {
+      alert("Изменения отменены. Вас перенаправит на главную страницу")
+      this.$router.push({name: 'projects'})
+    }
   },
   methods: {
     onSubmit(documentInput) {
