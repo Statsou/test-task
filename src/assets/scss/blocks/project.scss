@@ -1,0 +1,132 @@
+.project {
+  position: relative;
+  text-align: start;
+  padding: 30px 40px 10px;
+
+  @include vp-1199 {
+    padding: 30px 30px 10px;
+  }
+
+  @include vp-1199 {
+    padding: 20px 20px 10px;
+  }
+}
+
+.project__title {
+  font-size: 55px;
+  line-height: 75px;
+  font-weight: 600;
+
+  text-align: start;
+  margin: 0 0 25px;
+
+  @include vp-1199 {
+    font-size: 45px;
+    line-height: 65px;
+    margin: 0px 0 10px;
+  }
+
+  @include vp-767 {
+    font-size: 40px;
+    line-height: 55px;
+
+    padding: 0;
+    margin: 0px 0 10px;
+  }
+}
+
+.project__description {
+  font-size: 20px;
+  line-height: 23px;
+  margin: 0 0 35px;
+
+  @include vp-1199 {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0 0 30px;
+  }
+
+  @include vp-767 {
+    font-size: 14px;
+    margin: 0 0 20px;
+  }
+}
+
+.project__navigation {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include vp-767 {
+    gap: 10px;
+  }
+}
+
+.project__link {
+  position: relative;
+
+  display: inline-block;
+  padding: 8px 13px 8px 40px;
+
+  &::after {
+    position: absolute;
+    top: 11px;
+    left: 21px;
+
+    width: 1px;
+    height: 15px;
+
+    background-color: #ECECEC;
+    border-radius: 15px;
+    transition: background-color 0.2s;
+
+    content: "";
+  }
+
+  &::before {
+    position: absolute;
+    top: 18px;
+    left: 14px;
+
+    width: 15px;
+    height: 1px;
+
+    background-color: #ECECEC;
+    border-radius: 15px;
+    transition: background-color 0.2s;
+
+    content: "";
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::after,
+    &:before {
+      background-color: #303030;
+    }
+  }
+}
+
+.project__container-empty {
+  text-align: center;
+  padding: 20px;
+}
+
+.project__list {
+  padding: 15px 0;
+  margin: 0;
+  list-style-type: none;
+
+  @include vp-1199 {
+    padding: 10px 0;
+  }
+}
+
+.project__item {
+  position: relative;
+  border-radius: 15px;
+
+  &:not(:last-child) {
+    margin: 0 0 20px;
+  }
+}

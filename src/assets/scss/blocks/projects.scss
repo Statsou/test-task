@@ -1,0 +1,270 @@
+.projects {
+  position: relative;
+  padding: 30px 40px 10px;
+
+  @include vp-1199 {
+    padding: 30px 30px 10px;
+  }
+
+  @include vp-767 {
+    padding: 20px 20px 15px;
+  }
+}
+
+.projects__title {
+  font-size: 55px;
+  line-height: 75px;
+  font-weight: 600;
+
+  text-align: start;
+
+  padding: 0 215px 0 0;
+  margin: 0 0 40px;
+
+  @include vp-1199 {
+    font-size: 45px;
+    line-height: 65px;
+    margin: 0px 0 20px;
+  }
+
+  @include vp-767 {
+    font-size: 40px;
+    line-height: 55px;
+
+    text-align: center;
+    padding: 0;
+    margin: 0px 0 20px;
+  }
+}
+
+.projects__list {
+  max-height: 61vh;
+  padding: 0;
+  margin: 0;
+
+  list-style-type: none;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.projects__item {
+  position: relative;
+
+  background-color: #ECECEC;
+  border-radius: 15px;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:not(:last-child) {
+    margin: 0 0 20px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: #777DC8;
+    outline: none;
+
+    & > .projects__link {
+      color: #FFFFFF;
+
+      & + .projects__menu {
+        & > .projects__link-edit {
+          border: 1px #FFFFFF solid;
+          transition: border 0.2s;
+
+          & > .projects__icon-edit {
+            path {
+              stroke: #FFFFFF;
+              transition: stroke 0.2s;
+            }
+          }
+        }
+
+        & > .projects__button-delete {
+          border: 1px #FFFFFF solid;
+          transition: border 0.2s;
+
+          & > .projects__icon-trash {
+            path {
+              stroke: #FFFFFF;
+              transition: stroke 0.2s;
+            }
+          }
+
+          &:active {
+            border: 1px #AE2820 solid;
+            opacity: 0.8;
+
+            & > .projects__icon-trash {
+              path {
+                stroke: #AE2820;
+                opacity: 0.8;
+                transition: stroke 0.2s;
+              }
+            }
+          }
+        }
+
+        & > .projects__link-edit {
+          &:active {
+            border: 1px #BBBBBB solid;
+            opacity: 0.8;
+
+            & > .projects__icon-edit {
+              path {
+                stroke: #BBBBBB;
+                transition: stroke 0.2s;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include vp-1199 {
+    &:not(:last-child) {
+      margin: 0 0 15px;
+    }
+  }
+}
+
+.projects__link {
+  color: #3B3B3B;
+
+  text-align: start;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 167px;
+  padding: 25px;
+
+  border-radius: 15px;
+
+  @include vp-1199 {
+    padding: 20px;
+    min-height: 145px;
+  }
+
+  @include vp-767 {
+    padding: 15px;
+    min-height: 220px;
+  }
+}
+
+.projects__create-link {
+  position: absolute;
+  top: 50px;
+  right: 40px;
+
+  padding: 8px 13px 8px 40px;
+
+  &::after {
+    position: absolute;
+    top: 11px;
+    left: 21px;
+
+    width: 1px;
+    height: 15px;
+
+    background-color: #ECECEC;
+    transition: background-color 0.2s;
+
+    content: "";
+  }
+
+  &::before {
+    position: absolute;
+    top: 18px;
+    left: 14px;
+
+    width: 15px;
+    height: 1px;
+
+    background-color: #ECECEC;
+    transition: background-color 0.2s;
+
+    content: "";
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::after,
+    &:before {
+      background-color: #303030;
+    }
+  }
+
+  @include vp-767 {
+    position: relative;
+    top: auto;
+    right: auto;
+
+    padding: 8px 13px;
+    margin: 0 0 10px;
+  }
+}
+
+.projects__menu {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+
+  display: flex;
+  gap: 5px;
+
+  @include vp-1199 {
+    top: auto;
+    right: auto;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  @include vp-767 {
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+.projects__link-edit,
+.projects__button-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+
+  background-color: transparent;
+  border: 1px #777DC8 solid;
+  border-radius: 5px;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  @include vp-767 {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.projects__button-delete {
+  pointer-events: initial;
+}
+
+.projects__icon-edit,
+.projects__icon-trash {
+  width: 24px;
+  height: 24px;
+
+  & > path {
+    stroke: #777DC8;
+  }
+
+  @include vp-767 {
+    width: 18px;
+    height: 18px;
+  }
+}

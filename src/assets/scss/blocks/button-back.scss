@@ -1,0 +1,37 @@
+.button-arrow {
+  display: flex;
+  width: max-content;
+  padding: 8px 13px;
+
+  gap: 10px;
+  pointer-events: initial;
+
+  & svg {
+    width: 20px;
+    height: 20px;
+
+    & > path {
+      stroke: #ECECEC;
+    }
+  }
+
+  &::after,
+  &:before {
+    width: 0;
+    height: 0;
+    content: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    & svg {
+      & > path {
+        stroke: #303030;
+      }
+    }
+  }
+
+  @include vp-1199 {
+    padding: 7px 12px;
+  }
+}

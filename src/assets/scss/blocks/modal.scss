@@ -1,0 +1,19 @@
+.modal {
+  position: absolute;
+  top: -84px;
+  left: 0;
+
+  display: flex;
+  width: 100%;
+  height: 100vh;
+
+  background-color: #0000006c;
+}
+
+.modal__container {
+  background-color: rebeccapurple;
+  margin: 0 auto;
+  width: max-content;
+  height: max-content;
+  align-self: center;
+}

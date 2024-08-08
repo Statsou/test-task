@@ -1,0 +1,32 @@
+.create-document {
+  max-width: 434px;
+  margin: 0 auto;
+
+  @include vp-767 {
+    padding: 0 20px;
+  }
+}
+
+.create-document__title {
+  font-size: 45px;
+  line-height: 55px;
+  font-weight: 600;
+
+  margin: 0 0 40px;
+
+  @include vp-1199 {
+    font-size: 35px;
+    line-height: 45px;
+    margin: 0px 0 30px;
+  }
+
+  @include vp-767 {
+    font-size: 30px;
+    line-height: 35px;
+    margin: 0px 0 20px;
+  }
+}
+
+.create-document__navigation {
+  margin: 0 0 10px;
+}

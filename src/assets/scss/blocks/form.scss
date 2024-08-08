@@ -1,0 +1,61 @@
+.form__group {
+  padding: 0;
+  border: none;
+  margin-bottom: 10px;
+
+  & textarea {
+    resize: none;
+  }
+}
+
+.form__control {
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: inherit;
+
+  width: 400px;
+  padding: 7px 15px;
+
+  background-color: #ECECEC;
+  border: none;
+  border-radius: 5px;
+
+  &:focus-visible {
+    background-color: #d7d4d4;
+    outline: none;
+  }
+
+  &.is-invalid {
+    background-color: #c87c7c;
+  }
+
+  @include vp-1199 {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 6px 12px;
+  }
+
+  @include vp-767 {
+    font-size: 14px;
+    line-height: 18px;
+
+    width: 95%;
+    padding: 6px 8px;
+  }
+}
+
+.form__submit {
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 0.6px;
+
+  padding: 8px 30px;
+  margin: 10px 0;
+
+  pointer-events: initial;
+
+  @include vp-1199 {
+    padding: 6px 25px;
+  }
+}

@@ -1,0 +1,153 @@
+.document {
+  position: relative;
+
+  color: #3B3B3B;
+
+  padding: 20px;
+
+  border-radius: 15px;
+  background-color: #ECECEC;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover,
+  &:focus-visible {
+    color: #FFFFFF;
+    background-color: #777DC8;
+    outline: none;
+
+    & .document__link,
+      .document__button-delete {
+        border: 1px #FFFFFF solid;
+        transition: border 0.2s;
+        cursor: pointer;
+      }
+
+    & .document__link {
+      &:active {
+        border: 1px #BBBBBB solid;
+      }
+    }
+
+    & .document__button-delete {
+      &:active {
+        border: 1px #AE2820 solid;
+        opacity: 0.8;
+      }
+    }
+
+    & .document__icon-edit {
+      & > path {
+        stroke: #FFFFFF;
+        transition: stroke 0.2s;
+      }
+    }
+
+    & .document__icon-trash {
+      & path {
+        stroke: #FFFFFF;
+        transition: stroke 0.2s;
+      }
+    }
+  }
+}
+
+.document__title {
+  font-size: 28px;
+  line-height: 30px;
+
+  padding: 0 120px 0 0;
+  margin: 0 0 25px;
+
+  @include vp-1199 {
+    font-size: 25px;
+    line-height: 27px;
+
+    padding: 0;
+    margin: 0 0 10px;
+  }
+}
+
+.document__content {
+  font-size: 16px;
+  line-height: 20px;
+
+  margin: 0 0 10px;
+
+  @include vp-1199 {
+    font-size: 14px;
+  }
+}
+
+.document__menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  display: flex;
+  gap: 5px;
+
+  @include vp-1199 {
+    position: static;
+    justify-content: end;
+  }
+}
+
+.document__link,
+.document__button-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+
+  background-color: transparent;
+  border: 1px #777DC8 solid;
+  border-radius: 5px;
+
+  :not(:disabled) {
+    cursor: pointer;
+  }
+
+  @include vp-767 {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.document__link {
+  &:active {
+    & > .document__icon-edit {
+      & path {
+        stroke: #BBBBBB;
+      }
+    }
+  }
+}
+
+.document__button-delete {
+  pointer-events: initial;
+
+  &:active {
+    & > .document__icon-trash {
+      & path {
+        stroke: #AE2820;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.document__icon-edit,
+.document__icon-trash {
+  width: 24px;
+  height: 24px;
+
+  & > path {
+    stroke: #777DC8;
+  }
+
+  @include vp-767 {
+    width: 18px;
+    height: 18px;
+  }
+}
