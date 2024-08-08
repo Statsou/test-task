@@ -54,7 +54,7 @@ export default {
       projectInput.date = getDate();
       projectInput.slug = generateRandomString();
       projectInput.documents = [];
-      this.projectsList.projects.push(projectInput);
+      this.projectsList.projects.unshift(projectInput);
 
       this.$store
         .dispatch(actionTypesCreateProject.createProject, projectInput)

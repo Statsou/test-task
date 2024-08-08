@@ -55,7 +55,7 @@ export default {
   methods: {
     onSubmit(documentInput) {
       documentInput.slug = generateRandomString();
-      this.currentProject.documents.push(documentInput);
+      this.currentProject.documents.unshift(documentInput);
       this.$store
         .dispatch(actionTypesCreateDocument.createDocuments, documentInput)
         .then(() => {
