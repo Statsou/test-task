@@ -7,8 +7,9 @@
       <router-link
         class="project__link button-secondary"
         :to="{name: 'createDocument'}"
-        >Новый документ</router-link
       >
+        Новый документ
+      </router-link>
     </div>
     <span class="visually-hidden">Вложенные документы</span>
     <div class="project__container-empty" v-if="documentsLength === 0">
