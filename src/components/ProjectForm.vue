@@ -2,12 +2,12 @@
   <form class="form" @submit.prevent="onSubmit">
     <fieldset class="form__group">
       <input
-      class="form__control"
-      type="text"
-      placeholder="Название проекта"
-      v-model="title"
-      v-autofocus
-      required
+        class="form__control"
+        type="text"
+        placeholder="Название проекта"
+        v-model="title"
+        v-autofocus
+        required
       />
     </fieldset>
 
@@ -21,7 +21,13 @@
       >
       </textarea>
     </fieldset>
-    <button class="form__submit button-primary" type="submit" :disabled="isSubmitting">Сохранить</button>
+    <button
+      class="form__submit button-primary"
+      type="submit"
+      :disabled="isSubmitting"
+    >
+      Сохранить
+    </button>
   </form>
 </template>
 
@@ -31,35 +37,34 @@ export default {
   props: {
     initialValue: {
       type: Object,
-      required: true
+      required: true,
     },
     isSubmitting: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       title: this.initialValue.title,
-      description: this.initialValue.description
-    }
+      description: this.initialValue.description,
+    };
   },
   directives: {
     autofocus: {
       mounted(el) {
-        el.focus()
-      }
-    }
+        el.focus();
+      },
+    },
   },
   methods: {
     onSubmit() {
       const form = {
         title: this.title,
-        description: this.description
-      }
-      this.$emit('projectSubmit', form)
-    }
-  }
-
-}
+        description: this.description,
+      };
+      this.$emit('projectSubmit', form);
+    },
+  },
+};
 </script>

@@ -1,4 +1,4 @@
-import { createStore } from 'vuex';
+import {createStore} from 'vuex';
 import auth from '@/store/modules/auth.js';
 
 import projects from '@/store/modules/projects.js';
@@ -9,20 +9,16 @@ import createDocument from '@/store/modules/createDocument.js';
 import editDocument from '@/store/modules/editDocument.js';
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+  state: {},
+  getters: {},
+  mutations: {},
+  actions: {},
   modules: {
     auth,
     projects,
     createProject,
     editProject,
     createDocument,
-    editDocument
-  }
-})
+    editDocument,
+  },
+});

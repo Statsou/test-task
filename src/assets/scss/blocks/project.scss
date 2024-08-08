@@ -76,11 +76,11 @@
     width: 1px;
     height: 15px;
 
-    background-color: #ECECEC;
+    background-color: #ececec;
     border-radius: 15px;
     transition: background-color 0.2s;
 
-    content: "";
+    content: '';
   }
 
   &::before {
@@ -91,11 +91,11 @@
     width: 15px;
     height: 1px;
 
-    background-color: #ECECEC;
+    background-color: #ececec;
     border-radius: 15px;
     transition: background-color 0.2s;
 
-    content: "";
+    content: '';
   }
 
   &:hover,

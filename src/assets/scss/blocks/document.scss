@@ -1,53 +1,57 @@
 .document {
   position: relative;
 
-  color: #3B3B3B;
+  color: #3b3b3b;
 
   padding: 20px;
 
   border-radius: 15px;
-  background-color: #ECECEC;
+  background-color: #ececec;
   transition: background-color 0.2s, color 0.2s;
 
   &:hover,
   &:focus-visible {
-    color: #FFFFFF;
-    background-color: #777DC8;
+    color: #ffffff;
+    background-color: #777dc8;
     outline: none;
 
     & .document__link,
-      .document__button-delete {
-        border: 1px #FFFFFF solid;
-        transition: border 0.2s;
-        cursor: pointer;
-      }
+    .document__button-delete {
+      border: 1px #ffffff solid;
+      transition: border 0.2s;
+      cursor: pointer;
+    }
 
     & .document__link {
       &:active {
-        border: 1px #BBBBBB solid;
+        border: 1px #bbbbbb solid;
       }
     }
 
     & .document__button-delete {
       &:active {
-        border: 1px #AE2820 solid;
+        border: 1px #ae2820 solid;
         opacity: 0.8;
       }
     }
 
     & .document__icon-edit {
       & > path {
-        stroke: #FFFFFF;
+        stroke: #ffffff;
         transition: stroke 0.2s;
       }
     }
 
     & .document__icon-trash {
       & path {
-        stroke: #FFFFFF;
+        stroke: #ffffff;
         transition: stroke 0.2s;
       }
     }
+  }
+
+  &:active {
+    cursor: grab;
   }
 }
 
@@ -101,7 +105,7 @@
   height: 38px;
 
   background-color: transparent;
-  border: 1px #777DC8 solid;
+  border: 1px #777dc8 solid;
   border-radius: 5px;
 
   :not(:disabled) {
@@ -118,7 +122,7 @@
   &:active {
     & > .document__icon-edit {
       & path {
-        stroke: #BBBBBB;
+        stroke: #bbbbbb;
       }
     }
   }
@@ -130,7 +134,7 @@
   &:active {
     & > .document__icon-trash {
       & path {
-        stroke: #AE2820;
+        stroke: #ae2820;
         opacity: 0.8;
       }
     }
@@ -143,7 +147,7 @@
   height: 24px;
 
   & > path {
-    stroke: #777DC8;
+    stroke: #777dc8;
   }
 
   @include vp-767 {

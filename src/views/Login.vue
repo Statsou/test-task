@@ -5,7 +5,7 @@
       <fieldset class="form__group">
         <input
           class="form__control"
-          :class="{ 'is-invalid': isInvalidEmail }"
+          :class="{'is-invalid': isInvalidEmail}"
           type="text"
           placeholder="Email"
           v-model="email"
@@ -16,68 +16,72 @@
       <fieldset class="form__group">
         <input
           class="form__control"
-          :class="{ 'is-invalid': isInvalidPassword }"
+          :class="{'is-invalid': isInvalidPassword}"
           type="password"
           placeholder="Password"
           v-model="password"
-          @click="resetIsInvalidPassord"
+          @click="resetIsInvalidPassword"
         />
       </fieldset>
-      <button class="form__submit button-primary" type="submit" :disabled="isSubmitting">Войти</button>
+      <button
+        class="form__submit button-primary"
+        type="submit"
+        :disabled="isSubmitting"
+      >
+        Войти
+      </button>
     </form>
   </section>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import { actionTypes } from '@/store/modules/auth';
-import { validateEmail } from '@/helpers/validation.js'
+import {mapState} from 'vuex';
+import {actionTypes} from '@/store/modules/auth';
+import {validateEmail} from '@/helpers/validation.js';
 
 export default {
   name: 'TLogin',
-  data () {
+  data() {
     return {
       email: '',
       password: '',
       isInvalidEmail: false,
       isInvalidPassword: false,
-    }
+    };
   },
   computed: {
     ...mapState({
-      isSubmitting: state => state.auth.isSubmitting,
-      isLoggedIn: state => state.auth.isLoggedIn
-    })
+      isSubmitting: (state) => state.auth.isSubmitting,
+      isLoggedIn: (state) => state.auth.isLoggedIn,
+    }),
   },
   mounted() {
-    this.isLoggedIn ? this.$router.push({name: 'projects'}) : ''
+    this.isLoggedIn ? this.$router.push({name: 'projects'}) : '';
   },
   methods: {
     onSubmit() {
-      if (validateEmail(this.email) && this.email !== '' && this.password !== '') {
-        this.isInvalidEmail = false
-        this.isInvalidPassword = false
-        this.$store
-        .dispatch(actionTypes.login)
-        .then(() => {
-          this.$router.push({name: 'projects'})
-        })
+      if (validateEmail(this.email) && this.email && this.password) {
+        this.isInvalidEmail = false;
+        this.isInvalidPassword = false;
+        this.$store.dispatch(actionTypes.login).then(() => {
+          this.$router.push({name: 'projects'});
+        });
       }
 
-      if (!validateEmail(this.email) || this.email === '') {
-        this.isInvalidEmail = true
+      if (!validateEmail(this.email) || !this.email) {
+        this.isInvalidEmail = true;
       }
 
-      if (this.password == '') {
-        this.isInvalidPassword = true
+      if (!this.password) {
+        this.isInvalidPassword = true;
       }
     },
-    resetIsInvalidPassword () {
-      this.isInvalidPassword = false
+    resetIsInvalidPassword() {
+      this.isInvalidPassword = false;
     },
-    resetIsInvalidEmail () {
-      this.isInvalidEmail = false
+    resetIsInvalidEmail() {
+      this.isInvalidEmail = false;
     },
-  }
-}
+  },
+};
 </script>

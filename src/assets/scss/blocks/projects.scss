@@ -53,7 +53,7 @@
 .projects__item {
   position: relative;
 
-  background-color: #ECECEC;
+  background-color: #ececec;
   border-radius: 15px;
   transition: background-color 0.2s, color 0.2s;
 
@@ -63,43 +63,43 @@
 
   &:hover,
   &:focus-visible {
-    background-color: #777DC8;
+    background-color: #777dc8;
     outline: none;
 
     & > .projects__link {
-      color: #FFFFFF;
+      color: #ffffff;
 
       & + .projects__menu {
         & > .projects__link-edit {
-          border: 1px #FFFFFF solid;
+          border: 1px #ffffff solid;
           transition: border 0.2s;
 
           & > .projects__icon-edit {
             path {
-              stroke: #FFFFFF;
+              stroke: #ffffff;
               transition: stroke 0.2s;
             }
           }
         }
 
         & > .projects__button-delete {
-          border: 1px #FFFFFF solid;
+          border: 1px #ffffff solid;
           transition: border 0.2s;
 
           & > .projects__icon-trash {
             path {
-              stroke: #FFFFFF;
+              stroke: #ffffff;
               transition: stroke 0.2s;
             }
           }
 
           &:active {
-            border: 1px #AE2820 solid;
+            border: 1px #ae2820 solid;
             opacity: 0.8;
 
             & > .projects__icon-trash {
               path {
-                stroke: #AE2820;
+                stroke: #ae2820;
                 opacity: 0.8;
                 transition: stroke 0.2s;
               }
@@ -109,12 +109,12 @@
 
         & > .projects__link-edit {
           &:active {
-            border: 1px #BBBBBB solid;
+            border: 1px #bbbbbb solid;
             opacity: 0.8;
 
             & > .projects__icon-edit {
               path {
-                stroke: #BBBBBB;
+                stroke: #bbbbbb;
                 transition: stroke 0.2s;
               }
             }
@@ -132,7 +132,7 @@
 }
 
 .projects__link {
-  color: #3B3B3B;
+  color: #3b3b3b;
 
   text-align: start;
 
@@ -169,10 +169,10 @@
     width: 1px;
     height: 15px;
 
-    background-color: #ECECEC;
+    background-color: #ececec;
     transition: background-color 0.2s;
 
-    content: "";
+    content: '';
   }
 
   &::before {
@@ -183,10 +183,10 @@
     width: 15px;
     height: 1px;
 
-    background-color: #ECECEC;
+    background-color: #ececec;
     transition: background-color 0.2s;
 
-    content: "";
+    content: '';
   }
 
   &:hover,
@@ -237,7 +237,7 @@
   height: 38px;
 
   background-color: transparent;
-  border: 1px #777DC8 solid;
+  border: 1px #777dc8 solid;
   border-radius: 5px;
 
   &:not(:disabled) {
@@ -260,7 +260,7 @@
   height: 24px;
 
   & > path {
-    stroke: #777DC8;
+    stroke: #777dc8;
   }
 
   @include vp-767 {

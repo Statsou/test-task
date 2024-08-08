@@ -1,45 +1,45 @@
 const state = {
-  isSubmitting: false
-}
+  isSubmitting: false,
+};
 
 export const mutationTypes = {
   createProjectStart: '[createProject] createProjectStart',
   createProjectSuccess: '[createProject] createProjectSuccess',
-  createProjectFailure: '[createProject] createProjectFailure'
-}
+  createProjectFailure: '[createProject] createProjectFailure',
+};
 
 export const actionTypesCreateProject = {
   createProject: '[createProject] createProject',
-}
+};
 
 const mutations = {
   [mutationTypes.createProjectStart](state) {
-    state.isSubmitting = true
+    state.isSubmitting = true;
   },
   [mutationTypes.createProjectSuccess](state) {
-    state.isSubmitting = false
+    state.isSubmitting = false;
   },
   [mutationTypes.createProjectFailure](state) {
-    state.isSubmitting = false
-  }
-}
+    state.isSubmitting = false;
+  },
+};
 
 const actions = {
   [actionTypesCreateProject.createProject](context, newProject) {
-    return new Promise (resolve => {
-      context.commit(mutationTypes.createProjectStart)
+    return new Promise((resolve) => {
+      context.commit(mutationTypes.createProjectStart);
       if (newProject) {
-        context.commit(mutationTypes.createProjectSuccess, newProject)
-        resolve()
+        context.commit(mutationTypes.createProjectSuccess, newProject);
+        resolve();
       } else {
-        context.commit(mutationTypes.createProjectFailure)
+        context.commit(mutationTypes.createProjectFailure);
       }
-    })
-  }
-}
+    });
+  },
+};
 
 export default {
   state,
   mutations,
-  actions
-}
+  actions,
+};

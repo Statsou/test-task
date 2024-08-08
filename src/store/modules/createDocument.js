@@ -1,46 +1,46 @@
 const state = {
-  isSubmitting: false
-}
+  isSubmitting: false,
+};
 
 export const mutationTypes = {
   createDocumentStart: '[createDocument] createDocumentStart',
   createDocumentSuccess: '[createDocument] createDocumentSuccess',
-  createDocumentFailure: '[createDocument] createDocumentFailure'
-}
+  createDocumentFailure: '[createDocument] createDocumentFailure',
+};
 
 export const actionTypesCreateDocument = {
-  createDocuments: '[createDocument] createDocuments'
-}
+  createDocuments: '[createDocument] createDocuments',
+};
 
 const mutations = {
   [mutationTypes.createDocumentStart](state) {
-    state.isSubmitting = true
+    state.isSubmitting = true;
   },
   [mutationTypes.createDocumentSuccess](state) {
-    state.isSubmitting = false
+    state.isSubmitting = false;
   },
   [mutationTypes.createDocumentFailure](state) {
-    state.isSubmitting = false
-  }
-}
+    state.isSubmitting = false;
+  },
+};
 
 const actions = {
   [actionTypesCreateDocument.createDocuments](context, newDocument) {
-    return new Promise (resolve => {
-      context.commit(mutationTypes.createDocumentStart)
+    return new Promise((resolve) => {
+      context.commit(mutationTypes.createDocumentStart);
 
       if (newDocument) {
-        context.commit(mutationTypes.createDocumentSuccess, newDocument)
-        resolve()
+        context.commit(mutationTypes.createDocumentSuccess, newDocument);
+        resolve();
       } else {
-        context.commit(mutationTypes.createDocumentFailure)
+        context.commit(mutationTypes.createDocumentFailure);
       }
-    })
-  }
-}
+    });
+  },
+};
 
 export default {
   state,
   mutations,
-  actions
-}
+  actions,
+};

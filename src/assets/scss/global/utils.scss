@@ -12,11 +12,11 @@
 }
 
 .button-primary {
-  color: #FFFFFF;
+  color: #ffffff;
 
   display: inline-block;
   padding: 8px 26px;
-  background-color: #777DC8;
+  background-color: #777dc8;
 
   border: none;
   border-radius: 5px;
@@ -48,7 +48,7 @@
 .button-secondary {
   font-size: 18px;
   line-height: 23px;
-  color: #ECECEC;
+  color: #ececec;
 
   display: block;
   padding: 8px 13px;
@@ -56,7 +56,7 @@
   text-align: center;
 
   background-color: #303030;
-  border: 1px #ECECEC solid;
+  border: 1px #ececec solid;
   border-radius: 15px;
 
   transition: background-color 0.2s, opacity 0.2s;
@@ -67,7 +67,7 @@
     &:hover,
     &:focus-visible {
       color: #303030;
-      background-color: #ECECEC;
+      background-color: #ececec;
       outline: none;
     }
 
