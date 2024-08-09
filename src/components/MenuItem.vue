@@ -8,7 +8,7 @@
       <span class="visually-hidden">Редактировать</span>
       <svg
         class="menu__icon-edit"
-        :class="`${modificator}__icon-edit`"
+        :class="modificator? `${modificator}__icon-edit` : ''"
         xmlns="http://www.w3.org/2000/svg"
         width="10"
         height="10"
