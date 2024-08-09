@@ -46,10 +46,7 @@ export default {
   },
   beforeMount() {
     if (!this.projectsList) {
-      this.$store.dispatch(actionTypes.getProjects, {apiUrl: '/projects'});
-      const currentProject = JSON.parse(localStorage.getItem('currentProject'));
-      this.$store.dispatch(actionTypes.getCurrentProject, currentProject);
-      alert('Данные изменились на изначальные. Изменения не будут внесены.');
+      this.updatePage();
     }
   },
   methods: {
@@ -64,6 +61,12 @@ export default {
     },
     router() {
       this.$router.push({name: 'projectDocuments'});
+    },
+    updatePage() {
+      this.$store.dispatch(actionTypes.getProjects, {apiUrl: '/projects'});
+      const currentProject = JSON.parse(localStorage.getItem('currentProject'));
+      this.$store.dispatch(actionTypes.getCurrentProject, currentProject);
+      alert('Данные изменились на изначальные. Изменения не будут внесены.');
     },
   },
 };

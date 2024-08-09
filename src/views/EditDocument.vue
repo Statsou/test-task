@@ -58,8 +58,7 @@ export default {
     this.$store.dispatch(actionTypes.getCurrentDocument, currentDocument);
 
     if (!this.currentDocument) {
-      alert('Изменения отменены. Вас перенаправит на главную страницу');
-      this.$router.push({name: 'projects'});
+      this.updatePage();
     }
   },
   methods: {
@@ -74,6 +73,10 @@ export default {
     },
     router() {
       this.$router.go(-1);
+    },
+    updatePage() {
+      alert('Изменения отменены. Вас перенаправит на главную страницу');
+      this.$router.push({name: 'projects'});
     },
   },
 };

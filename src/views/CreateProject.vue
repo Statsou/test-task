@@ -46,7 +46,7 @@ export default {
   },
   beforeMount() {
     if (!this.projectsList) {
-      this.$store.dispatch(actionTypes.getProjects, {apiUrl: '/projects'});
+      this.updatePage();
     }
   },
   methods: {
@@ -64,6 +64,9 @@ export default {
     },
     router() {
       this.$router.push({name: 'projects'});
+    },
+    updatePage() {
+      this.$store.dispatch(actionTypes.getProjects, {apiUrl: '/projects'});
     },
   },
 };
